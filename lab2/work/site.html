@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My form</title>
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css">
+</head>
+
+<body>
+
+    <div id="mocha">
+    </div>
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script class="mocha-init">
+        mocha.setup('bdd');
+        mocha.checkLeaks();
+    </script>
+
+    <label for="add-student"> ___ADD STUDENT___</label>
+    <form name="add-student">
+        <label for="name">Name</label></br>
+        <input type="textarea" name="name" value="Andrii"></br>
+
+        <label for="surname">Surname</label></br>
+        <input type="textarea" name="surname" value="Trishch"></br>
+
+        <label for="phone">Phone</label></br>
+        <input type="textarea" name="phone" value="142423553"></br>
+
+        <input type="checkbox" name=storage>
+        <label for="storage">Web Storage</label></br>
+
+        <button type="button" onclick="addStudent()">Submit</button>
+
+
+    </form>
+
+    <label for="add-subject"> ___ADD SUBJECT FOR STUDENT___</label>
+    <form name="add-subject">
+        <label for="name">Name of subject</label></br>
+        <input type="textarea" name="name" value="Computer Science"></br>
+
+        <label for="studentName">Name of student</label></br>
+        <input type="textarea" name="studentName" value="Andrii"></br>
+
+        <button type="button" onclick="addSubject()">Submit</button>
+    </form>
+
+
+    <label for="add-grade"> ___ADD GRADE FOR STUDENT___</label>
+    <form name="add-grade">
+        <label for="name">Name of subject</label></br>
+        <input type="textarea" name="name" value="Computer Science"></br>
+
+        <label for="studentName">Name of student</label></br>
+        <input type="textarea" name="studentName" value="Andrii"></br>
+
+        <label for="grade">Grade of student</label></br>
+        <input type="textarea" name="grade" value="5"></br>
+
+        <button type="button" onclick="addGrade()">Submit</button>
+    </form>
+
+    <form name="write">
+        <label for="name">Write Student Name</label></br>
+        <input type="textarea" name="name" value="Andrii"></br>
+        <button type="button" onclick="writeStudent()">Write</button>
+    </form>
+    <p id="demo"></p>
+
+    <script src="script.js"></script>
+    <script class="mocha-exec">
+        mocha.run();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        var i;
+        var j, k;
+        google.charts.load("current", {
+            packages: ["corechart"]
+        });
+        google.charts.setOnLoadCallback(drawChart);
+        var mock = [{
+            name: "English",
+            mark: [4.5, 3.5, 3.0, 3.5, 4.5, 4.0]
+        }, {
+            name: "JS",
+            mark: [2.0, 3.5, 3.0, 3.5, 4.5, 3.5]
+        }, {
+            name: "Mownit",
+            mark: [4.5, 3.5, 3.0, 3.5, 4.5, 3.5]
+        }, {
+            name: "BD",
+            mark: [3.5, 3.5, 3.0, 3.5, 5.0, 3.5]
+        }, {
+            name: "SO",
+            mark: [4.5, 3.5, 2.0, 3.5, 4.5, 3.5]
+        }, {
+            name: "TAIJF",
+            mark: [3.5, 3.5, 2.0, 4.5, 4.5, 3.5]
+        }, {
+            name: "TC",
+            mark: [2.0, 3.5, 4.0, 3.5, 4.5, 3.5]
+        }, ];
+
+        function drawChart() {
+            var dataArray = [];
+            for (i = 0; i < mock.length; i++) {
+                (dataArray[0]) ? dataArray[0].push(mock[i].name): dataArray.push([mock[i].name]);
+                for (j = 0; j < mock[i].mark.length - 1; j++) {
+                    if (dataArray[j + 1]) dataArray[j + 1][i] = (mock[i].mark[j])
+                    else {
+                        dataArray.push([mock[i].mark[j]]);
+                        for (k = 0; k < mock.length - 1; k++) {
+                            dataArray[j + 1].push(null);
+                        }
+                    }
+                }
+            }
+            console.log(dataArray)
+            var data = google.visualization.arrayToDataTable(dataArray);
+            var options = {
+                title: 'Histogram of marks',
+                legend: {
+                    position: 'none'
+                },
+            };
+            var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        async function generate() {
+            var N = document.getElementById('N').value;
+            var M = document.getElementById('M').value;
+            var url = 'http://localhost:8081/' + N + "/" + M;
+            var data = await (getData(url));
+            data = JSON.parse(data);
+            for (i = 0; i < data.length; i++) {
+                for (j = 0; j < mock.length; j++) {
+                    if (mock[j].name == data[i].name) {
+                        mock[j].mark = mock[j].mark.concat(data[i].marks)
+                    }
+                }
+            }
+            drawChart()
+        }
+
+
+        const getData = async url => {
+            try {
+                const response = await fetch(url);
+                const json = await response.text();
+                return JSON.parse(json);
+
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        setInterval(generate, 1000);
+    </script>
+</head>
+
+<body>
+    <form>
+        <label for="N">N</label>
+        <input type="text" name="N" id="N" value="2"><br>
+        <label for="M">M</label>
+        <input type="text" name="M" id="M" value="3">
+    </form>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+</body>
+
+</html>

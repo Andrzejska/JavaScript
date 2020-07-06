@@ -1,0 +1,30 @@
+h1 {
+    margin-left: 20%;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    text-align: center;
+    margin-top: 0px;
+    clear: both;
+}
+
+main {
+    margin-bottom: 0px;
+}
+
+.w3-card-4 {
+    float: left;
+    width: 33%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.w3-card-3 {
+    float: left;
+    width: 15%;
+    margin-left: 10px;
+}
+
+.container {}

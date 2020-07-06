@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Page title
+    </title>
+
+</head>
+
+<body>
+    <main>
+        <h3>
+            Canvas
+        </h3>
+        <form name="enter-number">
+            <label for='inputN'>Input your positive number</label>
+            <input type='number' name='inputN'>
+            <button type="button" onclick="addNumber()">Submit</button></br>
+        </form>
+
+        <canvas id="library" width="200" height="200" style="border:1px solid #000000;">
+            Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not
+            support the "canvas" element
+        </canvas>
+        <p name='demo' id='demo'></p></br>
+        <canvas id="canvas" width="200" height="300" style="border:1px solid #000000;">
+            Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not
+            support the "canvas" element
+        </canvas>
+        <canvas id="triangle" width="200" height="200" style="border:1px solid #000000;">
+            Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not
+            support the "canvas" element
+        </canvas>
+        <canvas id="circle" width="200" height="200" style="border:1px solid #000000;">
+            Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not
+            support the "canvas" element
+        </canvas></br>
+    </main>
+    <script src='script.js'></script>
+    <script>
+        //Prostokat
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.moveTo(0, 300)
+        ctx.lineTo(200, 0)
+        ctx.lineTo(200, 300)
+        ctx.lineTo(0, 300)
+        ctx.fillStyle = 'green';
+        ctx.fill();
+        //Triangle
+        canvas = document.getElementById('triangle')
+        ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.moveTo(0, 200);
+        ctx.lineTo(100, 0);
+        ctx.lineTo(200, 200);
+        ctx.lineTo(0, 200)
+        ctx.fill();
+        //Kolo
+        canvas = document.getElementById('circle')
+        ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(100, 100, 50, 0, Math.PI * 2);
+        ctx.fillStyle = 'green';
+        ctx.fill();
+    </script>
+</body>
+
+</html>

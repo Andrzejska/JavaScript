@@ -1,0 +1,92 @@
+html {
+    background-image: url("img/back.png")
+}
+
+.body {
+    background-image: url("img/back.png")
+}
+
+nav {
+    margin-top: 0px;
+    width: 100%;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.container-fluid {
+    z-index: -1;
+    width: 100%;
+    padding: 0;
+    margin-top: 25px;
+}
+
+main {
+    padding-top: 30px;
+    background-image: url("img/back.png")
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+
+a {
+    color: hotpink;
+}
+
+footer {
+    color: black;
+    text-align: right;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+table {
+    background-color: white;
+    padding-top: 20px;
+}
+
+.card {
+    margin: 20px;
+    width: 70%;
+}
+
+.dropdown-item {
+    z-index: 1;
+}
+
+pre {
+    padding-top: 10%;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+h3 {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+.form-control {
+    width: 100%;
+}
+
+h4 {
+    padding: 10px;
+    text-align: center;
+}
+
+form {
+    width: 50%;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-left: 25%;
+}

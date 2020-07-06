@@ -1,0 +1,19 @@
+{
+    "name": "task-3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "author": "Andrii Trishch",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "xml2js": "^0.4.23"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    </link>
+</head>
+
+<body>
+
+    <span id="radio-group">
+        <input id="use-blocking-js" type="radio" name="worker" value="use-blocking-js" checked="true">Use blocking call
+        in main thread</input>
+        <input id="use-request-animation-frame" type="radio" name="worker" value="request-animation-frame">Use
+        requestAnimationFrame</input>
+        <input id="use-worker" type="radio" name="worker" value="use-worker">Use a worker</input>
+    </span>
+
+    <input id="pointless-computations" type="button" name="pointless-computations" value="Do pointless computations!" />
+
+    <input id="start-stop" type="button" name="start-stop" value="Start an imations" />
+
+    <div id="container">
+        <div class="moving-box"></div>
+    </div>
+
+    <script type="text/javascript" src="blocking.js"></script>
+    <script type="text/javascript" src="raf.js"></script>
+    <script type="text/javascript" src="worker.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script>
+        async function showTime() {
+            var area = document.getElementById('area').value;
+            var location = document.getElementById('location').value;
+
+
+            var url = 'http://localhost:8000/' + area + "/" + location;
+
+            var response = await fetch(url, {
+                mode: "no-cors"
+            });
+
+            //Adding the data
+            var newElement = document.createElement("p");
+            var textnode = document.createTextNode(new Date());
+            newElement.appendChild(textnode);
+            var divTime = document.getElementById('time');
+            while (divTime.firstChild) divTime.removeChild(divTime.firstChild);
+            divTime.appendChild(newElement);
+
+            var data = await getData(url);
+            var newElement1 = document.createElement("p");
+            var textnode1 = document.createTextNode(await data);
+            newElement1.appendChild(await textnode1);
+            divTime.appendChild(await newElement1);
+        }
+
+
+        const getData = async function (url) {
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    mode: 'no-cors',
+                }).then(async (response) => {
+                    return await response.text();
+                }).then((data) => {
+                    console.log(data)
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        setInterval(showTime, 1000)
+    </script>
+</head>
+
+<body>
+    <div id="time">
+        <p>Current time</p>
+    </div>
+    <form>
+        <label for="area">Area</label><br>
+        <input type="text" name="area" id="area" value="Europe"><br>
+        <label for="location">Location</label><br>
+        <input type="location" name="location" id="location" value="London"></br>
+        <button type="submit" onclick=showTime()>Submit</button>
+    </form>
+</body>
+
+</html>
